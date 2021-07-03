@@ -1,5 +1,5 @@
 [package]
-name = "algorithm"
+name = "CLI app"
 version = "0.1.0"
 authors = ["Elad Josef <eladyosef2003@gmail.com>"]
 edition = "2018"
