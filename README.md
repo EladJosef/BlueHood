@@ -8,7 +8,7 @@ BlueHood convert any file type into one encrypted image using Advanced Encryptio
 - [WebAssembly](https://webassembly.org/) - help us use rust algorithm in BlueHood app.
 - [Svelte](https://svelte.dev/) - framework for BlueHood app.
 ## Version tracking
-#### version number : 0.0.1v
+#### version number : 0.0.2v
 ### Next version todo list :
  - [X] File decryption
  - [X] CLI app
