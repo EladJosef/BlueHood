@@ -1,4 +1,4 @@
-# ![alt text](https://raw.githubusercontent.com/EladJosef/BlueHood/b0c4f54f89f70eb0bd56c5ae6d6534aed04c21c6/graphic%20package/xl-banner.svg)
+# ![alt text](https://raw.githubusercontent.com/EladJosef/BlueHood/d476f39e7a041707c72a84897582db6e1fa318f1/graphic%20package/xl-banner.svg)
 
 ## In the nutshell
 BlueHood convert any file type into one encrypted image using Advanced Encryption Standard 256bit (AKA AES).
