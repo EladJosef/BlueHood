@@ -3,9 +3,11 @@ use std::env;
 mod encryption;
 /// use for file management
 mod file;
+/// used for WebAssembly compilation
+use wasm_bindgen::prelude::*;
 
 /// main function (Run CLI)
-fn main() {
+fn run() {
     // init vector for the main arguments
     let mut argument_vector: Vec<String> = vec![];
 
@@ -32,7 +34,8 @@ fn main() {
 }
 
 /// used for encrypt file with key and file path
-fn encrypt_file(path: &str, encryption_key: &str) {
+#[wasm_bindgen]
+pub fn encrypt_file(path: &str, encryption_key: &str) {
     file::data_to_image(encryption::encrypt_file_data(
         file::get_file_data(path),
         encryption_key,
@@ -40,7 +43,8 @@ fn encrypt_file(path: &str, encryption_key: &str) {
 }
 
 /// used for decrypt file with key and file path
-fn decrypt_file(path: &str, encryption_key: &str) {
+#[wasm_bindgen]
+pub fn decrypt_file(path: &str, encryption_key: &str) {
     file::data_to_file(&mut encryption::decrypt_data(
         file::image_to_data(path),
         encryption_key,
