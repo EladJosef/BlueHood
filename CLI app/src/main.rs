@@ -37,5 +37,5 @@ fn encrypt_file(path: &str, encryption_key: &str) {
 }
 
 fn help() {
-    println!("Input need to be provided like:\n- encryption : bluehood.exe -en [path] [key]\n- decryption : bluehood.exe -de [path] [key]");
+    println!("Input need to be provided like:\n- encryption : bluehood.exe en [path] [key]\n- decryption : bluehood.exe de [path] [key]");
 }
