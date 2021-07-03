@@ -1,21 +1,41 @@
-mod convert;
+use std::env;
 mod encryption;
 mod file;
 
 fn main() {
-    let text_dir = ".\\files\\text.txt";
-    let img_dir = ".\\files\\image.png";
-    let music_dir = ".\\files\\music.mp3";
+    let mut argument_vector: Vec<String> = vec![];
 
-    let text_file_value = file::get_file_data(text_dir);
-    let img_file_value = file::get_file_data(img_dir);
-    let music_file_value = file::get_file_data(music_dir);
+    for argument in env::args() {
+        argument_vector.push(argument);
+    }
 
-    let text_file_encryption_value = encryption::encrypt_file_data(text_file_value, "test key");
-    let img_file_encryption_value = encryption::encrypt_file_data(img_file_value, "test key");
-    let music_file_encryption_value = encryption::encrypt_file_data(music_file_value, "test key");
+    if argument_vector.len() != 4 {
+        help();
+    } else {
+        if argument_vector[1] == "en" {
+            encrypt_file(&argument_vector[2], &argument_vector[3]);
+        } else if argument_vector[1] == "de" {
+            decrypt_file(&argument_vector[2], &argument_vector[3]);
+        } else {
+            help();
+        }
+    }
+}
 
-    convert::data_to_image(text_file_encryption_value, ".\\convert_files\\text.png");
-    convert::data_to_image(img_file_encryption_value, ".\\convert_files\\img.png");
-    convert::data_to_image(music_file_encryption_value, ".\\convert_files\\music.png");
+fn decrypt_file(path: &str, encryption_key: &str) {
+    file::data_to_file(&mut encryption::decrypt_data(
+        file::image_to_data(path),
+        encryption_key,
+    ));
+}
+
+fn encrypt_file(path: &str, encryption_key: &str) {
+    file::data_to_image(encryption::encrypt_file_data(
+        file::get_file_data(path),
+        encryption_key,
+    ));
+}
+
+fn help() {
+    println!("Input need to be provided like:\n- encryption : bluehood.exe -en [path] [key]\n- decryption : bluehood.exe -de [path] [key]");
 }

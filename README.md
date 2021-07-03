@@ -10,7 +10,6 @@ BlueHood convert any file type into one encrypted image using Advanced Encryptio
 ## Version tracking
 #### version number : 0.0.1v
 ### Next version todo list :
- - [ ] File decryption
- - [ ] CLI app
- - [ ] Rust lib
+ - [X] File decryption
+ - [X] CLI app
  - [ ] Update read me for next version
