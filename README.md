@@ -16,7 +16,13 @@ wasm-pack build --target web
 
 ## Usge
 ### CLI app
-just download the exe file from this [link](https://github.com/EladJosef/BlueHood/releases/download/0.0.2v/algorithm.exe)
+```bash
+git clone https://github.com/EladJosef/BlueHood
+cd CLI app
+cargo build
+cargo run [arguments]
+```
+or just download the exe file from this [link](https://github.com/EladJosef/BlueHood/releases/download/0.0.2v/algorithm.exe)
 ```cmd
 app.exe [arguments]
 ```
