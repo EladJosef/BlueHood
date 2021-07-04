@@ -28,7 +28,7 @@ app.exe [arguments]
 ```
 
 ## Version tracking
-#### version number : 0.0.2v
+#### version number : 0.1.0v
 ### Next version (0.1.0v) todo list :
  - [X] WebAssembly
  - [X] Init app
