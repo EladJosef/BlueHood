@@ -7,6 +7,13 @@ BlueHood convert any file type into one encrypted image using Advanced Encryptio
 - [Electron](https://www.electronjs.org/) - used for build cross-platform desktop apps (BlueHood app).
 - [WebAssembly](https://webassembly.org/) - help us use rust algorithm in BlueHood app.
 - [Svelte](https://svelte.dev/) - framework for BlueHood app.
+## Build
+### WebAssembly
+```cmd
+cd CLI app
+wasm-pack build --target web
+```
+
 ## Usge
 ### CLI app
 ```bash
@@ -20,11 +27,8 @@ or just download the exe file from this [link](https://github.com/EladJosef/Blue
 app.exe [arguments]
 ```
 
-
-
 ## Version tracking
 #### version number : 0.0.2v
-### Next version todo list :
- - [X] File decryption
- - [X] CLI app
- - [ ] Update read me for next version
+### Next version (0.1.0v) todo list :
+ - [X] WebAssembly
+ - [X] Init app

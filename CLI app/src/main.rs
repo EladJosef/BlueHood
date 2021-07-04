@@ -1,8 +1,4 @@
 use std::env;
-/// use for vector encryption
-mod encryption;
-/// use for file management
-mod file;
 
 /// main function (Run CLI)
 fn main() {
@@ -20,31 +16,15 @@ fn main() {
     } else {
         if argument_vector[1] == "en" {
             // encrypt file
-            encrypt_file(&argument_vector[2], &argument_vector[3]);
+            app::encrypt_file(&argument_vector[2], &argument_vector[3]);
         } else if argument_vector[1] == "de" {
             // decrypt file
-            decrypt_file(&argument_vector[2], &argument_vector[3]);
+            app::decrypt_file(&argument_vector[2], &argument_vector[3]);
         } else {
             // print help
             help();
         }
     }
-}
-
-/// used for encrypt file with key and file path
-fn encrypt_file(path: &str, encryption_key: &str) {
-    file::data_to_image(encryption::encrypt_file_data(
-        file::get_file_data(path),
-        encryption_key,
-    ));
-}
-
-/// used for decrypt file with key and file path
-fn decrypt_file(path: &str, encryption_key: &str) {
-    file::data_to_file(&mut encryption::decrypt_data(
-        file::image_to_data(path),
-        encryption_key,
-    ));
 }
 
 /// print help message into terminal
