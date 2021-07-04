@@ -1,0 +1,50 @@
+{
+  "name": "bluehood",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "serve": "sirv public",
+    "electron-start": "electronmon ./public/main.js",
+    "start": "npm run electron-start",
+    "validate": "svelte-check",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@rollup/plugin-typescript": "^6.0.0",
+    "@tsconfig/svelte": "^1.0.13",
+    "electronmon": "^1.1.2",
+    "rollup": "^2.52.7",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-svelte": "^6.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.38.3",
+    "svelte-check": "^1.6.0",
+    "svelte-preprocess": "^4.7.3",
+    "tslib": "^2.3.0",
+    "typescript": "^3.9.10"
+  },
+  "dependencies": {
+    "electron": "^10.4.7",
+    "sirv-cli": "^1.0.12",
+    "svelte-notifications": "^0.9.91"
+  },
+  "description": "TODO ! : READ ME",
+  "main": "rollup.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EladJosef/svelte-electron-typescript-electronmon-template.git"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "eladj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EladJosef/svelte-electron-typescript-electronmon-template/issues"
+  },
+  "homepage": "https://github.com/EladJosef/svelte-electron-typescript-electronmon-template#readme"
+}
