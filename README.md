@@ -46,7 +46,7 @@ npm i
 npm run dev
 ```
 ## What make it tick?
-#### Two main algorithms, encryption, and decryption.
+#### Two main algorithms, encryption and decryption.
 <p float="left">
 <img src="https://raw.githubusercontent.com/EladJosef/BlueHood/71c0eac017a1a9ef8c76029e9dc646a983c8416e/Program%20design/EncryptAlgorithm.svg" alt="encrypt algorithm design image" width="300"/>
 <img src="https://raw.githubusercontent.com/EladJosef/BlueHood/9eb2887c19995bd5af8664ab06a22d4796cc729e/Program%20design/%E2%80%8F%E2%80%8FDecryptAlgorithm.svg" alt="decrypt algorithm design image" width="300"/>
