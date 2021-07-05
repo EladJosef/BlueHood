@@ -8,25 +8,43 @@ BlueHood convert any file type into one encrypted image using Advanced Encryptio
 - [WebAssembly](https://webassembly.org/) - help us use rust algorithm in BlueHood app.
 - [Svelte](https://svelte.dev/) - framework for BlueHood app.
 ## Build
+### CLI app
+```bash
+cd CLI app
+cargo build
+```
 ### WebAssembly
-```cmd
+```bash
 cd CLI app
 wasm-pack build --target web
+```
+### GUI app
+```bash
+cd BlueHood app
+npm run build
 ```
 
 ## Usge
 ### CLI app
 ```bash
 git clone https://github.com/EladJosef/BlueHood
+cd BlueHood
 cd CLI app
 cargo build
 cargo run [arguments]
 ```
 or just download the exe file from this [link](https://github.com/EladJosef/BlueHood/releases/download/0.0.2v/algorithm.exe)
-```cmd
+```bash
 app.exe [arguments]
 ```
-
+### GUI app
+```bash
+git clone https://github.com/EladJosef/BlueHood
+cd BlueHood
+cd BlueHood app
+npm i
+npm run dev
+```
 ## Version tracking
 #### version number : 0.1.0v
 ### Next version (0.1.0v) todo list :
