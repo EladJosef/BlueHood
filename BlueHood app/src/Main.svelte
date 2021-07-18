@@ -1,13 +1,14 @@
 <script>
   import { getNotificationsContext } from "svelte-notifications";
+  import MediaQuery from "./MediaQuery.svelte";
 
   const { addNotification } = getNotificationsContext();
   const { remote } = require("electron");
-  const dialog = require("electron").remote.dialog;
+  import Bluehood from "./bluehood.js";
   const win = remote.getCurrentWindow();
 
   let is_encrypt = true;
-  let key_value = "";
+  let key_value = "test";
 
   win.setResizable(false);
 
@@ -19,22 +20,6 @@
     }
   }
 
-  function use_function(func_name) {
-    if (key_value.length > 0) {
-      dialog
-        .showOpenDialog({ properties: ["openFile"] })
-        .then(function (response) {
-          if (!response.canceled) {
-            // handle fully qualified file name
-            console.log(response.filePaths[0]);
-          } else {
-            error_msg("no file selected");
-          }
-        });
-    } else {
-      error_msg("Key not provided");
-    }
-  }
   function error_msg(msg) {
     addNotification({
       text: msg,
@@ -42,6 +27,23 @@
       removeAfter: 3500,
       type: "danger",
     });
+  }
+
+  function success_msg(msg) {
+    addNotification({
+      text: msg,
+      position: "bottom-right",
+      removeAfter: 3500,
+      type: "success",
+    });
+  }
+
+  function use_function(func_name) {
+    if (key_value.length > 0) {
+      Bluehood.command(func_name, key_value, error_msg, success_msg);
+    } else {
+      error_msg("Key not provided");
+    }
   }
 </script>
 
@@ -59,10 +61,16 @@
     </table>
   </div>
   <div id="header">
-    <img alt="logo" src=".\graphic package\banner.svg" id="logo" />
+    <MediaQuery query="(max-width: 999px)" let:matches>
+      {#if matches}
+        <img alt="logo" src=".\\graphic package\\logo.svg" id="logo" />
+      {:else}
+        <img alt="logo" src=".\\graphic package\\banner.svg" id="logo" />
+      {/if}
+    </MediaQuery>
   </div>
   <div id="main-content">
-    <h1>Convert your files into encrypted image</h1>
+    <h1 class="main-title">Convert your files into encrypted image</h1>
     <h2 class="key-input-label">Enter your key</h2>
     <input type="password" bind:value={key_value} />
     <h2 class="key-input-label">Choose function</h2>
@@ -157,13 +165,34 @@
   }
   #main-content input[type="password"] {
     margin-top: 0;
-    width: 12.5vw;
-    height: 5vh;
+    border: none;
+    border-radius: 0.25rem;
+    height: 5.5vh;
+    width: 25vw;
+    font-size: 6vh;
   }
   #main-content input[type="button"] {
+    font-family: "Spartan", sans-serif;
+    font-weight: 200;
     margin-top: 0;
     width: 12.5vw;
     height: 5vh;
-    border: 0px;
+    border: none;
+    border-radius: 0.25rem;
+    height: 5.5vh;
+  }
+  @media (max-width: 999px) {
+    #logo {
+      width: 60vw;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #main-content input[type="button"] {
+      width: 40%;
+    }
+    #main-content input[type="password"] {
+      width: 80vw;
+    }
   }
 </style>

@@ -1,0 +1,15 @@
+{
+  "name": "app",
+  "collaborators": [
+    "Elad Josef <eladyosef2003@gmail.com>"
+  ],
+  "version": "1.0.0",
+  "files": [
+    "app_bg.wasm",
+    "app.js",
+    "app.d.ts"
+  ],
+  "module": "app.js",
+  "types": "app.d.ts",
+  "sideEffects": false
+}

@@ -16,20 +16,12 @@ pub fn get_file_data(filename: &str) -> Vec<u8> {
 
     // get file name from filename
     let mut path: Vec<&str> = filename.split("\\").collect::<Vec<_>>();
-    let file_name = path.pop().unwrap().as_bytes();
+    let file_name = path.pop().unwrap();
 
     // get data from file
     file.read(&mut buffer).expect("buffer overflow");
 
-    // mark the end of the file title data
-    buffer.push(0);
-
-    // push file title to data vector
-    for i in file_name.iter() {
-        buffer.push(*i);
-    }
-
-    buffer
+    add_file_name_to_buffer(buffer, file_name)
 }
 
 /// Create file with data, data written to file with name thet store in vector
@@ -74,7 +66,7 @@ pub fn data_to_image(mut data: Vec<u8>) {
 
     // write data to file
     let mut writer = encoder.write_header().unwrap();
-    writer.write_image_data(&data).unwrap(); // Save
+    writer.write_image_data(&data).unwrap(); // Save file
 }
 
 /// Extract information from an image
@@ -95,4 +87,17 @@ pub fn image_to_data(img_path: &str) -> Vec<u8> {
     }
 
     buf
+}
+
+/// Add file name to data vector separated by one zero
+pub fn add_file_name_to_buffer(mut buffer: Vec<u8>, file_name: &str) -> Vec<u8> {
+    // mark the end of the file title data
+    buffer.push(0);
+
+    // push file title to data vector
+    for i in file_name.as_bytes().iter() {
+        buffer.push(*i);
+    }
+
+    buffer
 }
